@@ -8,6 +8,7 @@ Pod::Spec.new do |spec|
   spec.author       = "irons163"
   spec.platform     = :ios, "8.0"
   spec.source       = { :git => "https://github.com/irons163/IRFFMpeg.git", :tag => spec.version.to_s }
+  spec.static_framework = true
 
   spec.subspec 'FFMpegLib' do |subcfiles|
     
