@@ -1,13 +1,15 @@
 Pod::Spec.new do |spec|
   spec.name         = "IRFFMpeg"
-  spec.version      = "4.2.0"
+  spec.version      = "4.2.4"
   spec.summary      = "FFMpeg for iOS."
   spec.description  = "FFMpeg for iOS."
-  spec.homepage     = "https://github.com/irons163/IRPlayer.git"
+  spec.homepage     = "https://github.com/irons163/IRFFMpeg.git"
   spec.license      = "MIT"
   spec.author       = "irons163"
   spec.platform     = :ios, "8.0"
   spec.source       = { :git => "https://github.com/irons163/IRFFMpeg.git", :tag => spec.version.to_s }
+#  spec.static_framework = true
+  spec.default_subspec = 'FFMpegLib'
 
   spec.subspec 'FFMpegLib' do |subcfiles|
     
@@ -37,6 +39,8 @@ Pod::Spec.new do |spec|
 #    $dir = $dir + "/IRPlayer/ThirdParty/ffmpeg/**"  #$dir:/Users/wangbing/TempCode/MyLibrary/cfiles/**
 #    subcfiles.pod_target_xcconfig = { "HEADER_SEARCH_PATHS" => $dir}
 #    subcfiles.pod_target_xcconfig = { "HEADER_SEARCH_PATHS" => "${PODS_ROOT}/Headers/Private/**"}
+
+subcfiles.pod_target_xcconfig = { "MACH_O_TYPE" => "mh_dylib" }
 
     #demo工程的配置，上面是对pod工程的设置，当需要对demo工程设置时，使用user_target_xcconfig，这里就不做介绍了
     
