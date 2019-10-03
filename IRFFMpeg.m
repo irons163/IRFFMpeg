@@ -7,3 +7,5 @@
 //
 
 #import <Foundation/Foundation.h>
+
+// This file just for make cocoapods happy.

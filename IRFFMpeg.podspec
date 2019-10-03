@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "IRFFMpeg"
-  spec.version      = "4.2.9"
+  spec.version      = "4.2.11"
   spec.summary      = "FFMpeg for iOS."
   spec.description  = "FFMpeg for iOS."
   spec.homepage     = "https://github.com/irons163/IRFFMpeg.git"
@@ -8,15 +8,15 @@ Pod::Spec.new do |spec|
   spec.author       = "irons163"
   spec.platform     = :ios, "8.0"
   spec.source       = { :git => "https://github.com/irons163/IRFFMpeg.git", :tag => spec.version.to_s }
-  spec.source_files = "include/**/*.h", "IRFFMpeg.h"
-  spec.public_header_files = "include/**/*.h"
+  spec.source_files = "include/**/*.h", "IRFFMpeg.m", "IRFFMpeg.h"
+  spec.public_header_files = "include/**/*.h", "IRFFMpeg.h"
   spec.vendored_libraries = "**/*.a"
   spec.libraries = "z", "iconv", "bz2", "lzma"
-  spec.ios.deployment_target = '9.0'
+#  spec.ios.deployment_target = '9.0'
   spec.frameworks = "AVFoundation", "UIKit", "Foundation"
   spec.header_mappings_dir = "include"
 #  spec.ios.vendored_frameworks = 'IRFFMpeg.framework'
-  spec.xcconfig = { "OTHER_LDFLAGS" => "-ObjC -all_load" }
+#  spec.xcconfig = { "OTHER_LDFLAGS" => "-ObjC -all_load" }
 #  spec.static_framework = true
 #  spec.default_subspec = 'FFMpegLib'
 #
