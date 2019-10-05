@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "IRFFMpeg"
-  spec.version      = "4.2.11"
+  spec.version      = "4.2.12"
   spec.summary      = "FFMpeg for iOS."
   spec.description  = "FFMpeg for iOS."
   spec.homepage     = "https://github.com/irons163/IRFFMpeg.git"
@@ -15,6 +15,7 @@ Pod::Spec.new do |spec|
 #  spec.ios.deployment_target = '9.0'
   spec.frameworks = "AVFoundation", "UIKit", "Foundation"
   spec.header_mappings_dir = "include"
+  spec.static_framework = true
 #  spec.ios.vendored_frameworks = 'IRFFMpeg.framework'
 #  spec.xcconfig = { "OTHER_LDFLAGS" => "-ObjC -all_load" }
 #  spec.static_framework = true
