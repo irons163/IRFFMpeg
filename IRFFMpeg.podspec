@@ -7,8 +7,9 @@ Pod::Spec.new do |spec|
   spec.license      = "MIT"
   spec.author       = "irons163"
   spec.platform     = :ios, "8.0"
-  spec.source       = { :git => "https://github.com/irons163/IRFFMpeg.git", :tag => "4.2.14" }
+  spec.source       = { :git => "https://github.com/irons163/IRFFMpeg.git", :tag => spec.version.to_s }
   spec.source_files = "IRFFMpeg.m", "IRFFMpeg.h"
+  spec.module_map = "module.modulemap"
 #  spec.static_framework = true
 #  spec.user_target_xcconfig = { 'VALID_ARCHS' => 'arm64 armv7' }
 #spec.pod_target_xcconfig = { "HEADER_SEARCH_PATHS" => '"$(PODS_ROOT)/IRFFMpeg/include" "$(PODS_TARGET_SRCROOT)/include" "${PODS_CONFIGURATION_BUILD_DIR}/IRFFMpeg/Headers"',
@@ -27,10 +28,12 @@ spec.pod_target_xcconfig = { "HEADER_SEARCH_PATHS" => '"$(PODS_ROOT)/IRFFMpeg/in
 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'
 }
 
+spec.user_target_xcconfig = { 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
+
 spec.subspec 'FFMpegLib' do |subcfiles|
   subcfiles.source_files = "include/**/*.h"
   subcfiles.public_header_files = "include/**/*.h"
- # subcfiles.private_header_files = "include/**/version.h"
+  subcfiles.private_header_files = "include/**/d3d11va.h", "include/**/dxva2.h", "include/**/qsv.h", "include/**/hwcontext_qsv.h"
   subcfiles.vendored_libraries = "**/*.a"
   subcfiles.libraries = "z", "iconv", "bz2", "lzma"
 #  spec.ios.deployment_target = '9.0'
