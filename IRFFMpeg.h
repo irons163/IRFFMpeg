@@ -17,6 +17,5 @@ FOUNDATION_EXPORT const unsigned char IRFFMpegVersionString[];
 #import "libavcodec/avcodec.h"
 #import "libavutil/avutil.h"
 #import "libswresample/swresample.h"
-#import "libavresample/avresample.h"
 #import "libavfilter/avfilter.h"
 #import "libavdevice/avdevice.h"

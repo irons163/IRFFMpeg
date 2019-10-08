@@ -1,21 +1,44 @@
 Pod::Spec.new do |spec|
   spec.name         = "IRFFMpeg"
-  spec.version      = "4.2.12"
+  spec.version      = "4.2.14"
   spec.summary      = "FFMpeg for iOS."
   spec.description  = "FFMpeg for iOS."
   spec.homepage     = "https://github.com/irons163/IRFFMpeg.git"
   spec.license      = "MIT"
   spec.author       = "irons163"
   spec.platform     = :ios, "8.0"
-  spec.source       = { :git => "https://github.com/irons163/IRFFMpeg.git", :tag => spec.version.to_s }
-  spec.source_files = "include/**/*.h", "IRFFMpeg.m", "IRFFMpeg.h"
-  spec.public_header_files = "include/**/*.h", "IRFFMpeg.h"
-  spec.vendored_libraries = "**/*.a"
-  spec.libraries = "z", "iconv", "bz2", "lzma"
+  spec.source       = { :git => "https://github.com/irons163/IRFFMpeg.git", :tag => "4.2.14" }
+  spec.source_files = "IRFFMpeg.m", "IRFFMpeg.h"
+#  spec.static_framework = true
+#  spec.user_target_xcconfig = { 'VALID_ARCHS' => 'arm64 armv7' }
+#spec.pod_target_xcconfig = { "HEADER_SEARCH_PATHS" => '"$(PODS_ROOT)/IRFFMpeg/include" "$(PODS_TARGET_SRCROOT)/include" "${PODS_CONFIGURATION_BUILD_DIR}/IRFFMpeg/Headers"',
+#"USER_HEADER_SEARCH_PATHS" => '"$(PODS_ROOT)/IRFFMpeg/include" "$(PODS_TARGET_SRCROOT)/include" "${PODS_CONFIGURATION_BUILD_DIR}/IRFFMpeg/Headers"',
+#  "GCC_PREPROCESSOR_DEFINITIONS" => 'IRPLATFORM_TARGET_OS_IPHONE_OR_TV IRPLATFORM_TARGET_OS_MAC_OR_IPHONE',
+#  "OTHER_LDFLAGS" => '${inherited}',
+#  'ARCHS[sdk=iphonesimulator*]' => '$(ARCHS_STANDARD_64_BIT)',
+#'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'
+#}
+
+spec.pod_target_xcconfig = { "HEADER_SEARCH_PATHS" => '"$(PODS_ROOT)/IRFFMpeg/include"',
+"USER_HEADER_SEARCH_PATHS" => '"$(PODS_ROOT)/IRFFMpeg/include"',
+  "GCC_PREPROCESSOR_DEFINITIONS" => 'IRPLATFORM_TARGET_OS_IPHONE_OR_TV IRPLATFORM_TARGET_OS_MAC_OR_IPHONE',
+  "OTHER_LDFLAGS" => '${inherited}',
+  'ARCHS[sdk=iphonesimulator*]' => '$(ARCHS_STANDARD_64_BIT)',
+'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'
+}
+
+spec.subspec 'FFMpegLib' do |subcfiles|
+  subcfiles.source_files = "include/**/*.h"
+  subcfiles.public_header_files = "include/**/*.h"
+ # subcfiles.private_header_files = "include/**/version.h"
+  subcfiles.vendored_libraries = "**/*.a"
+  subcfiles.libraries = "z", "iconv", "bz2", "lzma"
 #  spec.ios.deployment_target = '9.0'
-  spec.frameworks = "AVFoundation", "UIKit", "Foundation"
-  spec.header_mappings_dir = "include"
-  spec.static_framework = true
+  subcfiles.frameworks = "AVFoundation", "UIKit", "Foundation"
+  subcfiles.header_mappings_dir = "include"
+end
+
+  
 #  spec.ios.vendored_frameworks = 'IRFFMpeg.framework'
 #  spec.xcconfig = { "OTHER_LDFLAGS" => "-ObjC -all_load" }
 #  spec.static_framework = true
