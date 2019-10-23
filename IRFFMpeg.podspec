@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "IRFFMpeg"
-  spec.version      = "4.2.16"
+  spec.version      = "4.2.17"
   spec.summary      = "FFMpeg for iOS."
   spec.description  = "FFMpeg for iOS."
   spec.homepage     = "https://github.com/irons163/IRFFMpeg.git"
