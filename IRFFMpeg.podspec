@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "IRFFMpeg"
-  spec.version      = "4.2.18"
+  spec.version      = "4.2.19"
   spec.summary      = "FFMpeg for iOS."
   spec.description  = "FFMpeg for iOS."
   spec.homepage     = "https://github.com/irons163/IRFFMpeg.git"
@@ -20,14 +20,14 @@ Pod::Spec.new do |spec|
 #'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'
 #}
 
-spec.pod_target_xcconfig = { "HEADER_SEARCH_PATHS" => '"$(PODS_ROOT)/IRFFMpeg/include"/**', "USER_HEADER_SEARCH_PATHS" => '"$(PODS_ROOT)/IRFFMpeg/include"',
+spec.pod_target_xcconfig = { "HEADER_SEARCH_PATHS" => '"$(PODS_ROOT)/IRFFMpeg/include"', "USER_HEADER_SEARCH_PATHS" => '"$(PODS_ROOT)/IRFFMpeg/include"',
   "GCC_PREPROCESSOR_DEFINITIONS" => 'IRPLATFORM_TARGET_OS_IPHONE_OR_TV IRPLATFORM_TARGET_OS_MAC_OR_IPHONE',
   "OTHER_LDFLAGS" => '-all_load',
   'ARCHS[sdk=iphonesimulator*]' => '$(ARCHS_STANDARD_64_BIT)',
 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'
 }
 
-spec.user_target_xcconfig = { 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
+spec.user_target_xcconfig = { '"${PODS_CONFIGURATION_BUILD_DIR}/IRFFMpeg/IRFFMpeg.framework/Headers"/**', 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
 
 spec.subspec 'FFMpegLib' do |subcfiles|
   subcfiles.source_files = "include/**/*.h"
