@@ -1,12 +1,12 @@
 Pod::Spec.new do |spec|
   spec.name         = "IRFFMpeg"
-  spec.version      = "4.2.19"
+  spec.version      = "4.2.20"
   spec.summary      = "FFMpeg for iOS."
   spec.description  = "FFMpeg for iOS."
   spec.homepage     = "https://github.com/irons163/IRFFMpeg.git"
   spec.license      = "MIT"
   spec.author       = "irons163"
-  spec.platform     = :ios, "8.0"
+  spec.platform     = :ios, "15.0"
   spec.source       = { :git => "https://github.com/irons163/IRFFMpeg.git", :tag => spec.version.to_s }
   spec.source_files = "IRFFMpeg.m", "IRFFMpeg.h"
   spec.module_map = "module.modulemap"
